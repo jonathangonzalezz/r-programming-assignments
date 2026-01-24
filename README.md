@@ -1,5 +1,5 @@
 # Jonathan Gonzalez Gonzalez
-LIS4370
+LIS4370---
 Repository for R Programming Assignments
 
 # Assignment 2 myMean - Function
