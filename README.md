@@ -77,17 +77,21 @@ print.student <- function(x) {
   cat("Age:", x$age, "\n")
   cat("GPA:", x$GPA, "\n")
 }
+
 print(student_s3)
 
 # S4 Example
+
 setClass("student",
          slots = list(
            name = "character",
            age  = "numeric",
            GPA  = "numeric"
          ))
+
 student_s4 <- new("student",
                   name = "Jon S",
                   age  = 19,
                   GPA  = 3.75)
+
 student_s4
