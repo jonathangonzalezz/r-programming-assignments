@@ -65,3 +65,29 @@ boxplot(hospital.df$BP ~ hospital.df$First,
 hist(hospital.df$BP,
      main = "Histogram of Patient Blood Pressure",
      xlab = "Blood Pressure")
+
+
+# Module 7 S3 vs S4
+# S3 Example
+student_s3 <- list(name = "Jon S", age = 19, GPA = 3.75)
+class(student_s3) <- "student"
+
+print.student <- function(x) {
+  cat("Student Name:", x$name, "\n")
+  cat("Age:", x$age, "\n")
+  cat("GPA:", x$GPA, "\n")
+}
+print(student_s3)
+
+# S4 Example
+setClass("student",
+         slots = list(
+           name = "character",
+           age  = "numeric",
+           GPA  = "numeric"
+         ))
+student_s4 <- new("student",
+                  name = "Jon S",
+                  age  = 19,
+                  GPA  = 3.75)
+student_s4
