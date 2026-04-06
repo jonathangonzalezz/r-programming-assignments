@@ -5,7 +5,6 @@ tukey.outlier <- function(x, k = 1.5) {
   x < (q1 - k * iqr) | x > (q3 + k * iqr)
 }
 
-# Original buggy function
 tukey_multiple <- function(x) {
   outliers <- array(TRUE, dim = dim(x))
   for (j in 1:ncol(x)) {
@@ -18,12 +17,10 @@ tukey_multiple <- function(x) {
   return(outlier.vec)
 }
 
-# Reproduce the error
 set.seed(123)
 test_mat <- matrix(rnorm(50), nrow = 10)
 tukey_multiple(test_mat)
 
-# Corrected function
 corrected_tukey <- function(x) {
   if (!is.matrix(x)) {
     stop("x must be a matrix.")
@@ -45,5 +42,4 @@ corrected_tukey <- function(x) {
   outlier.vec
 }
 
-# Run corrected version
 corrected_tukey(test_mat)
