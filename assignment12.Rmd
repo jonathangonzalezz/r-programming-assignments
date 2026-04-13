@@ -1,0 +1,59 @@
+---
+title: "My R Markdown Primer"
+author: "Jonathan Gonzalez"
+date: "2026-04-13"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+R Markdown is a file format that allows users to combine narrative writing, R code, and mathematical notation in a single document. This makes it easier to organize analysis and ensures that results are reproducible.
+
+# Narrative Section
+
+One of the main advantages of R Markdown is that it integrates code and explanation together. Instead of writing results separately, the output is generated directly from the code, reducing errors and improving clarity.
+
+Inline math example: $\alpha + \beta = \gamma$
+
+Displayed equation:
+
+$$
+y = mx + b
+$$
+
+# Load Data
+
+```{r}
+library(ggplot2)
+data("economics", package = "ggplot2")
+head(economics)
+```
+
+
+
+# Summary Statistics
+```{r}
+#The following output shows summary statistics for unemployment:
+
+summary(economics$unemploy)
+```
+
+
+# Visualization
+```{r}
+ggplot(economics, aes(x = date, y = unemploy)) +
+  geom_line(color = "blue") +
+  labs(
+    title = "Unemployment Over Time",
+    x = "Date",
+    y = "Number Unemployed"
+  )
+```
+
+
+
+
